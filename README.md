@@ -1,33 +1,35 @@
-# Student Performance Analysis with Machine Learning
+# Kayla Greavu Portfolio
 
-## Overview
-This project explores the factors that influence student academic performance using machine learning techniques. The goal is to identify key predictors of exam scores and build a model capable of making accurate predictions.
+This repository contains my professional portfolio for business analytics, data science, and generative AI projects.
 
-## Objectives
-- Analyze relationships between student behaviors and performance
-- Build predictive models using regression techniques
-- Evaluate model performance using RMSE and R²
+## About Me
 
-## Tools & Technologies
-- Python (pandas, seaborn, scikit-learn)
+I am pursuing a Bachelor of Arts in Business Analytics with interests in data analysis, predictive modeling, machine learning, and generative artificial intelligence.
+
+## Featured Projects
+
+### AI-Powered Marketing Content Generator
+A generative AI project designed to help small businesses create customized marketing content.
+
+### Student Performance Prediction
+A predictive analytics project focused on identifying factors that influence student exam performance.
+
+## Skills
+
+- Python
+- SQL
+- R
+- Pandas
+- NumPy
+- Matplotlib
 - Jupyter Notebook
+- GitHub
+- OpenAI API
 
-## Methods
-- Data cleaning and preprocessing
-- Exploratory Data Analysis (EDA)
-- Correlation analysis
-- Random Forest regression modeling
+## Portfolio Website
 
-## Key Findings
-- Study hours and attendance were the strongest predictors
-- Lifestyle factors had moderate impact
-- Model achieved moderate predictive accuracy
+[View My Portfolio](https://papercrane-design.github.io/kayla-greavu-portfolio/)
 
-## Limitations
-- Dataset may not represent all student populations
-- Some variables are subjective (e.g., motivation)
+## Contact
 
-## Future Improvements
-- Add more datasets
-- Improve model tuning
-- Incorporate classification for at-risk students
+GitHub: https://github.com/PaperCrane-Design
