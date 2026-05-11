@@ -4,7 +4,7 @@ This repository contains my professional portfolio for business analytics, data 
 
 ## About Me
 
-I am pursuing a Bachelor of Arts in Business Analytics with interests in data analysis, predictive modeling, machine learning, and generative artificial intelligence.
+I am pursuing a Masters in Data Analytics with interests in predictive modeling, machine learning, and generative artificial intelligence.
 
 ## Featured Projects
 
