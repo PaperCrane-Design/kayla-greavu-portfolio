@@ -1,0 +1,407 @@
+/* Senior metrics + AI product update for Kayla Greavu portfolio */
+
+:root {
+  --bg: #0f172a;
+  --bg-soft: #111827;
+  --card: #1e293b;
+  --card-strong: #0f172a;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
+  --soft-muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-2: #a78bfa;
+  --border: rgba(148, 163, 184, 0.24);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+body.light-theme {
+  --bg: #f8fafc;
+  --bg-soft: #e2e8f0;
+  --card: #ffffff;
+  --card-strong: #eff6ff;
+  --text: #0f172a;
+  --muted: #334155;
+  --soft-muted: #475569;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --border: rgba(15, 23, 42, 0.14);
+  --shadow: 0 22px 55px rgba(15, 23, 42, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.20), transparent 34rem),
+    radial-gradient(circle at top right, rgba(167, 139, 250, 0.14), transparent 30rem),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a { color: inherit; }
+
+.site-header {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.navbar {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  backdrop-filter: blur(16px);
+}
+
+.light-theme .navbar { background: rgba(255, 255, 255, 0.86); }
+
+.logo {
+  font-weight: 900;
+  text-decoration: none;
+  letter-spacing: -0.04em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.72rem;
+  flex-wrap: wrap;
+}
+
+.nav-links a,
+.theme-toggle {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.87rem;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+}
+
+.hero {
+  max-width: 1120px;
+  margin: 7.5rem auto 4rem;
+  padding: clamp(2rem, 5vw, 4rem);
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.97), rgba(30, 41, 59, 0.94)),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 24rem);
+  border: 1px solid var(--border);
+  border-radius: 2.25rem;
+  box-shadow: var(--shadow);
+  color: #f8fafc;
+}
+
+.light-theme .hero {
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.97), rgba(30, 41, 59, 0.94)),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.14), transparent 24rem);
+  color: #f8fafc;
+}
+
+.eyebrow {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
+.hero .eyebrow { color: #7dd3fc; }
+
+h1, h2, h3, p { margin-top: 0; }
+
+h1 {
+  max-width: 1000px;
+  font-size: clamp(2.7rem, 7vw, 5.65rem);
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.22rem;
+  line-height: 1.25;
+}
+
+.hero-text {
+  max-width: 860px;
+  color: #dbeafe;
+  font-size: 1.22rem;
+  margin-bottom: 2rem;
+}
+
+.hero-stats,
+.metric-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.hero-stats {
+  grid-template-columns: repeat(4, 1fr);
+  margin: 2rem 0;
+}
+
+.metric-grid { grid-template-columns: repeat(3, 1fr); }
+
+.hero-stats div,
+.metric-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.16);
+  border-radius: 1.25rem;
+  padding: 1rem;
+}
+
+.metric-card {
+  background: linear-gradient(180deg, var(--card), var(--card-strong));
+  box-shadow: var(--shadow);
+}
+
+.hero-stats strong,
+.metric-card strong {
+  display: block;
+  color: var(--text);
+  font-size: 2.15rem;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.hero-stats strong { color: #ffffff; }
+
+.hero-stats span {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.metric-card p { color: var(--muted); }
+
+.hero-buttons,
+.project-links,
+.contact-links,
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.button,
+.project-links a,
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.8rem 1.05rem;
+  font-weight: 900;
+  text-decoration: none;
+  border: 1px solid var(--border);
+}
+
+.button.primary {
+  background: var(--accent);
+  color: #020617;
+}
+
+.button.secondary,
+.project-links a,
+.contact-links a {
+  background: var(--card);
+  color: var(--text);
+}
+
+.button:hover,
+.project-links a:hover,
+.contact-links a:hover {
+  transform: translateY(-2px);
+  transition: 0.2s ease;
+}
+
+.section {
+  max-width: 1240px;
+  margin: 0 auto 2rem;
+  padding: 4.25rem 1rem;
+}
+
+.section-heading {
+  max-width: 880px;
+  margin-bottom: 2rem;
+}
+
+.section-heading p,
+.content-card p,
+.experience-card p,
+.project-card p,
+.skill-card p,
+.contact-section p,
+.architecture-card p,
+.product-roadmap p {
+  color: var(--muted);
+}
+
+.about-grid,
+.project-grid,
+.skills-grid,
+.ai-grid,
+.product-roadmap {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-grid { grid-template-columns: 1.25fr 0.75fr; }
+.project-grid { grid-template-columns: repeat(3, 1fr); }
+.skills-grid { grid-template-columns: repeat(3, 1fr); }
+.ai-grid { grid-template-columns: 1.4fr 0.8fr; }
+.product-roadmap {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 1rem;
+}
+
+.content-card,
+.highlight-card,
+.experience-card,
+.project-card,
+.skill-card,
+.cert-card,
+.architecture-card,
+.product-roadmap article {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  padding: 1.45rem;
+  box-shadow: var(--shadow);
+}
+
+.ai-section .featured-project {
+  background:
+    linear-gradient(180deg, rgba(30, 41, 59, 0.97), rgba(15, 23, 42, 0.95)),
+    radial-gradient(circle at top left, rgba(167, 139, 250, 0.18), transparent 20rem);
+}
+
+.light-theme .ai-section .featured-project {
+  background:
+    linear-gradient(180deg, #ffffff, #eff6ff),
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.10), transparent 20rem);
+}
+
+.highlight-card ul,
+.project-card ul {
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.experience-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.experience-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 0.88rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card.featured-project { grid-column: span 2; }
+
+.project-topline {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tag,
+.mini-tags span {
+  border: 1px solid var(--border);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.28rem 0.62rem;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.architecture-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.architecture-list div {
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--card-strong);
+}
+
+.architecture-list strong,
+.architecture-list span { display: block; }
+
+.architecture-list span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.contact-section { text-align: center; }
+.contact-section .section-heading { margin-left: auto; margin-right: auto; }
+
+footer {
+  text-align: center;
+  color: var(--soft-muted);
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 1020px) {
+  .navbar {
+    border-radius: 1.5rem;
+    flex-direction: column;
+  }
+
+  .hero { margin-top: 3rem; }
+
+  .about-grid,
+  .project-grid,
+  .skills-grid,
+  .hero-stats,
+  .metric-grid,
+  .ai-grid,
+  .product-roadmap {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card.featured-project { grid-column: span 1; }
+}
