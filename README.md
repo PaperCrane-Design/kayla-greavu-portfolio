@@ -63,6 +63,17 @@ Predictive modeling case study exploring how behavioral, academic, and environme
 
 Professional analytics framing for operational dashboards, performance metrics, throughput monitoring, and stakeholder decision support.
 
+## Tableau Dashboard Portfolio
+
+### Stock Market Performance Dashboard
+Interactive Tableau dashboard analyzing historical stock performance and market trends.
+
+### Basketball Sales Analytics Dashboard
+Sales analytics dashboard using sports-related sales data to compare performance and communicate business insights.
+
+### Regional Performance Dashboard
+Business intelligence dashboard analyzing regional performance differences for executive-style reporting.
+
 ## Education
 
 - Master of Science in Data Analytics — Expected May 2026, Bellevue University
