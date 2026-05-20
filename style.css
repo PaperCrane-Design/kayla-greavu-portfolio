@@ -100,14 +100,17 @@ a {
   max-width: 1000px;
   margin: 8rem auto 4rem;
   padding: 3rem;
-  background: rgba(30, 41, 59, 0.72);
+
+  /* DARKER BACKGROUND */
+  background: rgba(15, 23, 42, 0.92);
+
   border: 1px solid var(--border);
   border-radius: 2rem;
   box-shadow: var(--shadow);
-}
+  backdrop-filter: blur(14px);
 
-.light-theme .hero {
-  background: rgba(255, 255, 255, 0.78);
+  /* IMPROVED TEXT CONTRAST */
+  color: #F8FAFC;
 }
 
 .eyebrow {
@@ -126,6 +129,7 @@ p {
 }
 
 h1 {
+  color: #FFFFFF;
   max-width: 850px;
   font-size: clamp(2.8rem, 7vw, 5.8rem);
   line-height: 0.95;
@@ -146,7 +150,7 @@ h3 {
 
 .hero-text {
   max-width: 780px;
-  color: var(--muted);
+  color: #CBD5E1;
   font-size: 1.15rem;
 }
 
