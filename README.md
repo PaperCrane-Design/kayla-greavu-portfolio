@@ -1,87 +1,100 @@
-# Kayla Greavu | Senior Data Scientist Portfolio
+# Kayla Greavu – Data Analytics & Business Intelligence Portfolio
 
-Professional portfolio for senior analytics, data science, business intelligence, cybersecurity analytics, and generative AI product work.
+Professional portfolio for data analytics, business intelligence, predictive modeling, cybersecurity analytics, risk modeling, operational decision support, and generative AI project work.
 
 ## Live Portfolio
 
 [View Portfolio](https://papercrane-design.github.io/kayla-greavu-portfolio/)
 
-## Positioning
+## Professional Positioning
 
-Senior Data Scientist and Analytics Strategist with 12+ years of experience translating operational complexity into measurable intelligence through predictive modeling, dashboards, risk analytics, decision-support systems, and AI-enabled workflows.
+Data analytics and operations leader with 12+ years of experience translating operational complexity into measurable intelligence through predictive modeling, dashboards, risk analytics, decision-support systems, data governance, and AI-enabled workflows.
 
-## Portfolio Metrics
+Currently pursuing a Master of Science in Data Analytics with focus areas in machine learning, generative AI, LLM workflows, embeddings, prompt engineering, and retrieval-augmented generation concepts.
 
-- 12+ years analytics experience
-- 24/7 global operations supported
-- $3B infrastructure risk scope
-- 12K+ enterprise users supported
-- 165 locations supported
-- 3 Tableau dashboards
-- 6+ analytics / AI case studies
+## Portfolio Sections
 
-## Featured AI Product Build
+- About
+- Work / Projects
+- Experience
+- Skills
+- Contact
 
-### Car Marketing AI: Dealership Campaign Intelligence Platform
+## Featured Projects
 
-A data-driven AI marketing assistant designed to help dealerships:
+| # | Project | Focus Area | Skills Demonstrated |
+|---|---|---|---|
+| 1 | AI Marketing Content Generator | Generative AI Application | Python, Streamlit, OpenAI API, prompt engineering, pandas |
+| 2 | Car Marketing AI Campaign Intelligence Platform | AI Product Strategy | Generative AI, scoring logic, marketing analytics, product workflow design |
+| 3 | Mission-Critical Infrastructure Cyber Risk Analytics | Cybersecurity Analytics | Risk modeling, vulnerability analysis, threat analysis, detection strategy |
+| 4 | Predictive Performance Analytics | Predictive Analytics | Python, statistical modeling, feature analysis, visualization |
+| 5 | Operational Decision-Support Analytics | Business Analytics | KPI design, dashboards, stakeholder reporting, process improvement |
+| 6 | Infrastructure Risk & Anomaly Detection | Risk Analytics | Anomaly detection, system availability, root-cause analysis |
+| 7 | Stock Market Performance Dashboard | Tableau / BI | Time-series analysis, financial visualization, dashboard design |
+| 8 | Basketball Sales Analytics Dashboard | Tableau / Sales Analytics | Sales analytics, business intelligence, performance comparison |
+| 9 | Regional Performance Dashboard | Tableau / Executive Reporting | Regional analysis, KPI reporting, visual storytelling |
+| 10 | Enterprise Data Governance & Reporting Systems | Data Systems | Data governance, reporting systems, enterprise analytics workflows |
 
-- Choose which vehicles to promote
-- Generate high-performing content
-- Target the right buyers
-- Recommend optimal post timing
-- Rank vehicles by lead potential, urgency, and audience fit
+## Recommended Repository Structure
 
-The key differentiator is decision-making and automation, not just content generation.
+```text
+kayla-greavu-portfolio/
+│
+├── index.html
+├── README.md
+├── LICENSE
+│
+├── assets/
+│   └── css/
+│       └── style.css
+│
+├── resume/
+│   └── kayla-greavu-resume-2026.pdf
+│
+├── projects/
+│   ├── ai-marketing-content-generator/
+│   ├── car-marketing-ai-case-study/
+│   ├── predictive-performance-analytics/
+│   ├── operational-decision-support/
+│   ├── infrastructure-risk-anomaly-detection/
+│   └── dashboard-case-studies/
+│
+├── notebooks/
+│   └── predictive-performance-analytics.ipynb
+│
+├── data/
+│   └── student-performance-factors.csv
+│
+└── docs/
+```
 
-### Planned Architecture
+## Core Technical Skills
 
-- Frontend: React dashboard, vehicle selector, campaign builder
-- Backend: Python REST API for ingestion, scoring logic, AI calls, and storage
-- AI Layer: LLM extraction, summarization, persona mapping, and copy generation
-- Analytics Layer: Scoring engine, timing optimizer, audience classifier
-- Database: Vehicles, scores, campaigns, recommendations, and performance tracking
-
-## Case Studies
-
-### Predictive Performance Analytics
-Predictive modeling case study exploring how behavioral, academic, and environmental factors influence performance outcomes.
-
-### Operational Decision-Support Analytics
-Professional analytics framing for dashboards, metrics, throughput monitoring, backlog reduction, and resource allocation.
-
-### Infrastructure Risk & Anomaly Detection
-Cybersecurity analytics framing around risk modeling, system degradation, anomaly detection, and leadership-ready reporting.
-
-## Tableau Dashboard Portfolio
-
-### Stock Market Performance Dashboard
-Interactive Tableau dashboard analyzing historical stock performance and time-series market trends.
-
-### Basketball Sales Analytics Dashboard
-Sales analytics dashboard using sports-related sales data to compare performance and communicate business metrics.
-
-### Regional Performance Dashboard
-Business intelligence dashboard analyzing regional performance differences and executive-style reporting.
-
-## Core Competencies
-
-- Python, SQL, R
-- pandas, NumPy
-- Predictive modeling
-- Statistical analysis
-- Machine learning
+- Python
+- SQL
+- R
+- pandas
+- NumPy
+- Machine Learning
+- Predictive Modeling
+- Statistical Analysis
 - Forecasting
-- Feature engineering
-- LLM workflows
-- Prompt engineering
-- RAG concepts
-- Tableau dashboards
-- Data pipelines
-- Data governance
-- Cybersecurity risk analytics
-- Stakeholder communication
-- Decision support
+- Feature Engineering
+- Risk Modeling
+- Anomaly Detection
+- Tableau
+- Dashboard Development
+- Business Intelligence
+- KPI Reporting
+- Data Visualization
+- Data Governance
+- Data Pipelines
+- Generative AI
+- Prompt Engineering
+- LLM Workflows
+- Cybersecurity Analytics
+- Decision Support
+- Stakeholder Communication
 
 ## Certifications
 
