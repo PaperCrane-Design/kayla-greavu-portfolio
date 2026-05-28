@@ -53,8 +53,8 @@ def get_model_name() -> str:
     """Return the configured fine-tuned model name.
 
     For the submitted class project, set this in Streamlit secrets or as an
-    environment variable named FINE_TUNED_MODEL. The placeholder reminds the
-    student where to paste the final model name from the OpenAI dashboard.
+    environment variable named FINE_TUNED_MODEL. The placeholder reminds you
+    where to paste the final model name from the OpenAI dashboard.
     """
     return os.getenv("FINE_TUNED_MODEL", DEFAULT_MODEL_PLACEHOLDER)
 
