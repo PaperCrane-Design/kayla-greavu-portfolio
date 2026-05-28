@@ -1,12 +1,5 @@
-"""Streamlit front end for the DSC670/DSC680 final AI marketing project.
+"""Streamlit front end for the AI-powered marketing content generator."""
 
-Run locally:
-    streamlit run streamlit_app.py
-
-Required for real model output:
-    export OPENAI_API_KEY="your_key"
-    export FINE_TUNED_MODEL="ft:gpt-4.1-mini-2025-04-14:..."
-"""
 from __future__ import annotations
 
 from pathlib import Path
@@ -24,6 +17,7 @@ from marketing_generator import (
 )
 
 APP_DIR = Path(__file__).parent
+
 DATA_FILES = {
     "Vehicle MSRP data": APP_DIR / "data.csv",
     "Car sales data": APP_DIR / "Car_sales.csv",
@@ -51,11 +45,14 @@ def clean_label(value: object) -> str:
 
 def dataset_selector() -> tuple[str, pd.DataFrame]:
     available = {name: path for name, path in DATA_FILES.items() if path.exists()}
+
     if not available:
         st.warning("No project CSV files were found beside the app. Upload a CSV to continue.")
         uploaded = st.file_uploader("Upload a CSV file", type=["csv"])
+
         if uploaded is None:
             return "Uploaded data", pd.DataFrame()
+
         return uploaded.name, pd.read_csv(uploaded)
 
     dataset_name = st.selectbox("Choose a project dataset", list(available.keys()))
@@ -64,6 +61,7 @@ def dataset_selector() -> tuple[str, pd.DataFrame]:
 
 def show_dataset_summary(dataset_name: str, df: pd.DataFrame) -> Optional[Dict[str, object]]:
     st.subheader("1. Explore the project data")
+
     if df.empty:
         return None
 
@@ -77,10 +75,12 @@ def show_dataset_summary(dataset_name: str, df: pd.DataFrame) -> Optional[Dict[s
         st.dataframe(df.head(50), use_container_width=True)
 
     selected_row = None
+
     label_cols = [col for col in ["Make", "Brand", "Manufacturer", "name"] if col in df.columns]
     model_cols = [col for col in ["Model", "name"] if col in df.columns]
 
     st.markdown("#### Select a vehicle/product example to include in the marketing prompt")
+
     if label_cols or model_cols:
         label_col = label_cols[0] if label_cols else model_cols[0]
         options = df.index[: min(len(df), 500)].tolist()
@@ -94,22 +94,42 @@ def show_dataset_summary(dataset_name: str, df: pd.DataFrame) -> Optional[Dict[s
 
         row_idx = st.selectbox("Product example", options, format_func=option_label)
         selected_row = df.loc[row_idx].to_dict()
+
         st.info(build_product_context(selected_row))
 
     numeric_cols = df.select_dtypes(include="number").columns.tolist()
-    if len(numeric_cols) >= 1:
+
+    if numeric_cols:
         st.markdown("#### Quick visual")
-        x_candidates = [col for col in ["Year", "model_year", "Make", "Brand", "Manufacturer", "Vehicle_type"] if col in df.columns]
-        y_default = "MSRP" if "MSRP" in numeric_cols else ("Price" if "Price" in numeric_cols else numeric_cols[0])
+
+        x_candidates = [
+            col
+            for col in ["Year", "model_year", "Make", "Brand", "Manufacturer", "Vehicle_type"]
+            if col in df.columns
+        ]
+
+        y_default = "MSRP" if "MSRP" in numeric_cols else "Price" if "Price" in numeric_cols else numeric_cols[0]
         y_col = st.selectbox("Metric to chart", numeric_cols, index=numeric_cols.index(y_default))
+
         if x_candidates:
             x_col = st.selectbox("Group by", x_candidates)
             chart_df = df[[x_col, y_col]].dropna()
+
             if not chart_df.empty:
                 if chart_df[x_col].nunique() > 25:
-                    chart_df = chart_df.groupby(x_col, as_index=False)[y_col].mean().sort_values(y_col, ascending=False).head(20)
+                    chart_df = (
+                        chart_df.groupby(x_col, as_index=False)[y_col]
+                        .mean()
+                        .sort_values(y_col, ascending=False)
+                        .head(20)
+                    )
                 else:
-                    chart_df = chart_df.groupby(x_col, as_index=False)[y_col].mean().sort_values(y_col, ascending=False)
+                    chart_df = (
+                        chart_df.groupby(x_col, as_index=False)[y_col]
+                        .mean()
+                        .sort_values(y_col, ascending=False)
+                    )
+
                 fig = px.bar(chart_df, x=x_col, y=y_col, title=f"Average {y_col} by {x_col}")
                 st.plotly_chart(fig, use_container_width=True)
 
@@ -117,12 +137,14 @@ def show_dataset_summary(dataset_name: str, df: pd.DataFrame) -> Optional[Dict[s
 
 
 def show_generator_form(product_context: str) -> None:
-    st.subheader("2. Generate marketing copy with the fine-tuned model")
+    st.subheader("2. Generate marketing copy")
+
     model_name = get_model_name()
     st.caption(f"Configured model: `{model_name}`")
 
     with st.form("marketing_form"):
         col1, col2 = st.columns(2)
+
         with col1:
             business_type = st.text_input("Business type", "local car dealership")
             audience = st.text_input("Target audience", "local shoppers comparing reliable vehicles")
@@ -130,7 +152,11 @@ def show_generator_form(product_context: str) -> None:
                 "Platform",
                 ["Facebook", "Instagram", "Google Ad", "Website copy", "Email newsletter", "TikTok caption"],
             )
-            tone = st.selectbox("Tone", ["friendly", "professional", "confident", "helpful", "warm and cheerful"])
+            tone = st.selectbox(
+                "Tone",
+                ["friendly", "professional", "confident", "helpful", "warm and cheerful"],
+            )
+
         with col2:
             keywords = st.text_area(
                 "Keywords",
@@ -150,7 +176,13 @@ def show_generator_form(product_context: str) -> None:
             call_to_action = st.text_input("Call to action", "Schedule a test drive today")
             length = st.radio("Length", ["Short", "Medium", "Detailed"], horizontal=True)
 
-        st.text_area("Dataset/product context sent to the model", product_context, height=100, disabled=True)
+        st.text_area(
+            "Dataset/product context sent to the model",
+            product_context,
+            height=100,
+            disabled=True,
+        )
+
         submitted = st.form_submit_button("Generate marketing copy", type="primary")
 
     if submitted:
@@ -165,39 +197,51 @@ def show_generator_form(product_context: str) -> None:
             call_to_action=call_to_action,
             length=length,
         )
+
         with st.spinner("Generating content..."):
             output = generate_with_fine_tuned_model(request)
+
         st.markdown("### Generated marketing copy")
         st.success(output)
-        st.download_button(
-            "Download generated copy",
-            data=output,
-            file_name="generated_marketing_copy.txt",
-            mime="text/plain",
-        )
+
+        if output:
+            st.download_button(
+                "Download generated copy",
+                data=output,
+                file_name="generated_marketing_copy.txt",
+                mime="text/plain",
+            )
 
 
 def show_about() -> None:
     st.sidebar.title("Project controls")
+
     st.sidebar.markdown(
         "This app turns structured business inputs and optional vehicle dataset details "
-        "into marketing copy using the fine-tuned small-business marketing model."
+        "into realistic marketing copy for small businesses."
     )
-    st.sidebar.markdown("**Setup for final submission**")
-    st.sidebar.code("OPENAI_API_KEY=...\nFINE_TUNED_MODEL=ft:gpt-4.1-mini-...", language="bash")
+
+    st.sidebar.markdown("**Setup**")
+    st.sidebar.code(
+        "OPENAI_API_KEY=your_api_key_here\nFINE_TUNED_MODEL=gpt-4.1-mini",
+        language="bash",
+    )
 
 
 def main() -> None:
     show_about()
+
     st.title("📣 AI-Powered Marketing Content Generator")
+
     st.write(
-        "A Streamlit application that builds on the fine-tuned OpenAI marketing model "
-        "from the previous milestone and surfaces it as a portfolio-ready web app."
+        "A Streamlit application that uses OpenAI and project data to generate marketing copy "
+        "for small businesses."
     )
 
     dataset_name, df = dataset_selector()
     selected_row = show_dataset_summary(dataset_name, df)
     product_context = build_product_context(selected_row)
+
     show_generator_form(product_context)
 
     st.markdown("---")
